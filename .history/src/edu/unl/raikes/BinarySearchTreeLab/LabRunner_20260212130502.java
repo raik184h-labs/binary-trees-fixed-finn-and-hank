@@ -6,7 +6,7 @@ public class LabRunner {
 	 * Executes the program. Adds/searches/removes from a BST.
 	 * 
 	 * @param args
-	 *             this program accepts no args.
+	 *            this program accepts no args.
 	 */
 	public static void main(String[] args) {
 		// create the tree
@@ -30,17 +30,11 @@ public class LabRunner {
 		// add Connor to the tree
 		insertIntoBSTAndPrintResults(bst, new Person(666666666, "Connor"));
 
-		// ADD ONE THAT ALREADY EXISTS
-		insertIntoBSTAndPrintResults(bst, new Person(666666666, "Connor"));
-
 		// find the person with NUID 111111111
 		searchInBSTAndPrintResults(bst, 111111111);
 
 		// find the person with NUID 555555555
 		searchInBSTAndPrintResults(bst, 555555555);
-
-		// SEARCH FOR NO EXIST
-		searchInBSTAndPrintResults(bst, 001101010);
 
 		// delete the person with NUID 555555555
 		deleteFromBSTAndPrintResults(bst, 555555555);
@@ -60,18 +54,15 @@ public class LabRunner {
 		// delete the person with NUID 666666666
 		deleteFromBSTAndPrintResults(bst, 666666666);
 
-		// DELETE THAT DOESN'T EXIST
-		deleteFromBSTAndPrintResults(bst, 001101010);
-
 	}
 
 	/**
 	 * Inserts a person into a BST and prints the results
 	 * 
 	 * @param bst
-	 *               the BST to insert a person into
+	 *            the BST to insert a person into
 	 * @param person
-	 *               the person to insert into a BST
+	 *            the person to insert into a BST
 	 */
 	private static void insertIntoBSTAndPrintResults(BinarySearchTree bst, Person person) {
 		// insert the person

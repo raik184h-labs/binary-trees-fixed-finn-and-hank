@@ -6,7 +6,7 @@ public class LabRunner {
 	 * Executes the program. Adds/searches/removes from a BST.
 	 * 
 	 * @param args
-	 *             this program accepts no args.
+	 *            this program accepts no args.
 	 */
 	public static void main(String[] args) {
 		// create the tree
@@ -69,9 +69,9 @@ public class LabRunner {
 	 * Inserts a person into a BST and prints the results
 	 * 
 	 * @param bst
-	 *               the BST to insert a person into
+	 *            the BST to insert a person into
 	 * @param person
-	 *               the person to insert into a BST
+	 *            the person to insert into a BST
 	 */
 	private static void insertIntoBSTAndPrintResults(BinarySearchTree bst, Person person) {
 		// insert the person

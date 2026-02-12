@@ -13,7 +13,6 @@ class BinarySearchNode {
 
 	/**
 	 * A constructor for BinarySearchNode
-	 * 
 	 * @param person a person
 	 */
 	BinarySearchNode(Person person) {
@@ -22,7 +21,6 @@ class BinarySearchNode {
 
 	/**
 	 * Inserts data into a tree
-	 * 
 	 * @param data data
 	 * @return true if it inserted, false otherwise
 	 */
@@ -31,7 +29,7 @@ class BinarySearchNode {
 		if (data == this.person) {
 			return false;
 		}
-		// Checks if data needs to go left
+		// Checks if data needs to go left 
 		else if (Integer.compare(data.key, person.key) < 0) {
 			// If left nulll, set it left
 			if (leftChild == null) {
@@ -58,7 +56,6 @@ class BinarySearchNode {
 
 	/**
 	 * Returns the node if it's in the tree
-	 * 
 	 * @param key value to search for
 	 * @return the node
 	 */
@@ -83,7 +80,6 @@ class BinarySearchNode {
 
 	/**
 	 * deletes a node
-	 * 
 	 * @param key the value to delete
 	 * @return the data in the deleted node
 	 */
@@ -124,7 +120,6 @@ class BinarySearchNode {
 
 	/**
 	 * Gets the node with the lowest value
-	 * 
 	 * @return node with lowest value
 	 */
 	BinarySearchNode getNodeWithMinValue() {
@@ -136,7 +131,6 @@ class BinarySearchNode {
 
 	/**
 	 * Sets the left child
-	 * 
 	 * @param child a child
 	 */
 	void setLeftChild(BinarySearchNode child) {
@@ -147,7 +141,6 @@ class BinarySearchNode {
 
 	/**
 	 * Sets the right child
-	 * 
 	 * @param child a child
 	 */
 	void setRightChild(BinarySearchNode child) {
@@ -161,11 +154,9 @@ class BinarySearchNode {
 	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		if (leftChild != null)
-			sb.append(leftChild.toString());
+		if (leftChild != null) sb.append(leftChild.toString());
 		sb.append("  ").append(person.toString()).append("\n");
-		if (rightChild != null)
-			sb.append(rightChild.toString());
+		if (rightChild != null) sb.append(rightChild.toString());
 		return sb.toString();
 	}
 }

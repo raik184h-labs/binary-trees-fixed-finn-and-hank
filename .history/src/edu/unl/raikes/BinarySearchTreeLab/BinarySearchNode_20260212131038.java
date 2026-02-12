@@ -1,54 +1,41 @@
 package edu.unl.raikes.BinarySearchTreeLab;
 
-/**
- * Represents a node in the binary search tree. Stores a {@link Person} and
- * references to the node's parent and children. Most tree operations are
- * implemented by working with these nodes.
- */
+// TODO: ADD JAVADOC COMMENT 
 class BinarySearchNode {
 	protected BinarySearchNode parent;
 	protected BinarySearchNode leftChild;
 	protected BinarySearchNode rightChild;
 	protected Person person;
 
-	/**
-	 * A constructor for BinarySearchNode
-	 * 
-	 * @param person a person
-	 */
+	// TODO: ADD JAVADOC COMMENT
 	BinarySearchNode(Person person) {
 		this.person = person;
 	}
 
-	/**
-	 * Inserts data into a tree
-	 * 
-	 * @param data data
-	 * @return true if it inserted, false otherwise
-	 */
+	// TODO: ADD JAVADOC COMMENT
 	boolean insert(Person data) {
-		// Return false if this person is identical to data
+		// TODO: ADD COMMENT
 		if (data == this.person) {
 			return false;
 		}
-		// Checks if data needs to go left
+		// TODO: ADD COMMENT
 		else if (Integer.compare(data.key, person.key) < 0) {
-			// If left nulll, set it left
+			// TODO: ADD COMMENT
 			if (leftChild == null) {
 				setLeftChild(new BinarySearchNode(data));
 				return true;
-			} // Otherwise insert it in the left child
+			} // TODO: ADD COMMENT
 			else {
 				return leftChild.insert(data);
 			}
 		}
-		// Check if data needs to go right
+		// TODO: ADD COMMENT
 		else if (Integer.compare(data.key, person.key) > 0) {
-			// Creates new if needed
+			// TODO: ADD COMMENT
 			if (rightChild == null) {
 				setRightChild(new BinarySearchNode(data));
 				return true;
-			} // Inserts right
+			} // TODO: ADD COMMENT
 			else {
 				return rightChild.insert(data);
 			}
@@ -56,64 +43,54 @@ class BinarySearchNode {
 		return false;
 	}
 
-	/**
-	 * Returns the node if it's in the tree
-	 * 
-	 * @param key value to search for
-	 * @return the node
-	 */
+	// TODO: ADD JAVADOC COMMENT
 	BinarySearchNode search(int key) {
-		// search left
+		// TODO: ADD COMMENT
 		if (leftChild != null && Integer.compare(key, person.key) < 0) {
 			return leftChild.search(key);
 		}
-		// search right
+		// TODO: ADD COMMENT
 		else if (rightChild != null && Integer.compare(key, person.key) > 0) {
 			return rightChild.search(key);
 		}
-		// checks if person equals key
+		// TODO: ADD COMMENT
 		else if (this.person.key == key) {
 			return this;
 		}
-		// if key not in return null
+		// TODO: ADD COMMENT
 		else {
 			return null;
 		}
 	}
 
-	/**
-	 * deletes a node
-	 * 
-	 * @param key the value to delete
-	 * @return the data in the deleted node
-	 */
+	// TODO: ADD JAVADOC COMMENT
 	Person delete(int key) {
-		// search for the node to delete
+		// TODO: ADD COMMENT
 		BinarySearchNode node = search(key);
 		if (node == null)
 			return null;
 		Person deleted = node.person;
 
-		// checks if node has no sub tree
+		// TODO: ADD COMMENT
 		if (node.leftChild == null && node.rightChild == null) {
 			if (node.parent.leftChild == node)
 				node.parent.setLeftChild(null);
 			else if (node.parent.rightChild == node)
 				node.parent.setRightChild(null);
 		}
-		// checks if node has two sub trees
+		// TODO: ADD COMMENT
 		else if (node.leftChild != null && node.rightChild != null) {
 			BinarySearchNode min = node.rightChild.getNodeWithMinValue();
 			node.person = min.person;
 			int minKey = min.person.key;
 			min.delete(minKey);
 		}
-		// node is left tree
+		// TODO: ADD COMMENT
 		else if (node.parent.leftChild == node) {
 			BinarySearchNode newLeftChild = (node.leftChild != null) ? node.leftChild : node.rightChild;
 			node.parent.setLeftChild(newLeftChild);
 		}
-		// node is right tree
+		// TODO: ADD COMMENT
 		else if (node.parent.rightChild == node) {
 			BinarySearchNode newRightChild = (node.leftChild != null) ? node.leftChild : node.rightChild;
 			node.parent.setRightChild(newRightChild);
@@ -122,11 +99,7 @@ class BinarySearchNode {
 		return deleted;
 	}
 
-	/**
-	 * Gets the node with the lowest value
-	 * 
-	 * @return node with lowest value
-	 */
+	// TODO: ADD JAVADOC COMMENT
 	BinarySearchNode getNodeWithMinValue() {
 		if (leftChild == null)
 			return this;
@@ -134,38 +107,27 @@ class BinarySearchNode {
 			return leftChild.getNodeWithMinValue();
 	}
 
-	/**
-	 * Sets the left child
-	 * 
-	 * @param child a child
-	 */
+	// TODO: ADD JAVADOC COMMENT
 	void setLeftChild(BinarySearchNode child) {
 		this.leftChild = child;
 		if (child != null)
 			child.parent = this;
 	}
 
-	/**
-	 * Sets the right child
-	 * 
-	 * @param child a child
-	 */
+	// TODO: ADD JAVADOC COMMENT
 	void setRightChild(BinarySearchNode child) {
 		this.rightChild = child;
 		if (child != null)
 			child.parent = this;
 	}
 
-	/**
-	 * returns the tree as a string
-	 */
+	// TODO: ADD JAVADOC COMMENT (WHAT KIND OF SEARCH SHOULD THIS BE???)
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		if (leftChild != null)
-			sb.append(leftChild.toString());
+		if (leftChild != null) sb.append(leftChild.toString());
 		sb.append("  ").append(person.toString()).append("\n");
-		if (rightChild != null)
-			sb.append(rightChild.toString());
+		if (rightChild != null) sb.append(rightChild.toString());
 		return sb.toString();
 	}
+
 }
